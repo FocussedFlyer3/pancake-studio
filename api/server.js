@@ -1,6 +1,5 @@
-const axios = require('axios');
-const flatten = require('flat');
-const path = require('path');
+import axios from "axios";
+import flatten from "flat";
 
 
 async function webhook(req, res) {
@@ -14,7 +13,9 @@ async function webhook(req, res) {
         flatPayload[key] = '' + flatPayload[key];
     })
 
-    axios.post(`https://hooks.slack.com${req.path}`, flatPayload)
+    axios.post(`https://hooks.slack.com${req.url}`, flatPayload).catch((e) => {
+        console.warn(e)
+    })
 }
 
 async function staticPage(req, res) {

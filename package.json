@@ -1,11 +1,10 @@
 {
   "name": "pancake-studio",
   "version": "1.0.0",
+  "type": "module",
   "description": "A server that receives json payloads, flattens the keys and sends this new payload to passed in url",
-  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "watch": "npx nodemon --watch server.js --watch public --exec npm run start"
   },
   "repository": {
@@ -18,9 +17,7 @@
   },
   "homepage": "https://pancake.studio/",
   "dependencies": {
-    "axios": "^1.6.7",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "axios": "^0.21.0",
     "flat": "^5.0.2"
   }
 }
