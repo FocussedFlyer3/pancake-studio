@@ -1,6 +1,9 @@
 {
   "routes": [{
-    "src": "/(.*)",
+    "src": "/triggers/(.*)",
+    "dest": "api/server.js"
+  },{
+    "src": "/workflows/(.*)",
     "dest": "api/server.js"
   }]
 }
