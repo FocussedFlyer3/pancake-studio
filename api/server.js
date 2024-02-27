@@ -14,7 +14,7 @@ async function webhook(req, res) {
     })
 
     axios.post(`https://hooks.slack.com${req.url}`, flatPayload).catch((e) => {
-        console.warn(e)
+        console.warn(e?.message)
     })
 }
 
