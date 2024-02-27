@@ -3,7 +3,6 @@ import flatten from "flat";
 
 
 async function webhook(req, res) {
-    res.send('ok');
     const payload = req.body;
     const flatPayload = flatten(payload, { delimiter: '-' });
 
@@ -13,9 +12,11 @@ async function webhook(req, res) {
         flatPayload[key] = '' + flatPayload[key];
     })
 
-    axios.post(`https://hooks.slack.com${req.url}`, flatPayload).catch((e) => {
+    await axios.post(`https://hooks.slack.com${req.url}`, flatPayload).catch((e) => {
         console.warn(e?.message)
     })
+
+    res.send('ok');
 }
 
 async function staticPage(req, res) {
