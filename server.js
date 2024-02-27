@@ -37,7 +37,7 @@ app.use(express.static('public'))
 app.post(['/workflows/*', '/triggers/*'], (req, res) => {
     res.send('ok');
     const payload = req.body;
-    const flatPayload = flatten(payload);
+    const flatPayload = flatten(payload, { delimiter: '-' });
 
     // workflow builder requires values to be strings
     // iterate over every value and convert it to string
